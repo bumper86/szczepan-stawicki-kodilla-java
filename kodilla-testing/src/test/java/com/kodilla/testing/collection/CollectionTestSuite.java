@@ -28,16 +28,18 @@ public class CollectionTestSuite {
         simpleList.add(2);
         simpleList.add(3);
         simpleList.add(4);
+        ArrayList<Integer> scoreList = new ArrayList<>();
+        scoreList.add(2);
+        scoreList.add(4);
         //When
         OddNumbersExterminator numbersExterminator = new OddNumbersExterminator();
         ArrayList<Integer> result = numbersExterminator.exterminate(simpleList);
         //Then
         System.out.println("Test na liście zawierającej elementy: " + simpleList);
+        System.out.println("Poprawna lista zawiera elementy: " + scoreList);
         System.out.println("Stworzona nowa lista z elementów parzystych: " + result);
-        Assert.assertNotEquals(simpleList, result);
-        for (Integer lista : result) {
-            Assert.assertTrue(lista % 2 == 0);
-        }
+        Assert.assertEquals(scoreList, result);
+
 
     }
     @Test
@@ -45,17 +47,15 @@ public class CollectionTestSuite {
         //Given
         System.out.println("Test na pustej liście");
         ArrayList<Integer> simpleList2 = new ArrayList<>();
+        ArrayList<Integer> scoreList2 = new ArrayList<>();
+
         //When
         OddNumbersExterminator numbersExterminator = new OddNumbersExterminator();
         ArrayList<Integer> result = numbersExterminator.exterminate(simpleList2);
         //Then
         System.out.println("Lista wejściowa: " + simpleList2);
         System.out.println("Lista wyjściowa: " + result);
-        Assert.assertEquals(simpleList2, result);
-        for (Integer lista : result) {
-            Assert.assertTrue(lista % 2 == 0);
-        }
-
+        Assert.assertEquals(scoreList2, result);
     }
 
 }
