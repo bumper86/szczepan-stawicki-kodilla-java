@@ -22,6 +22,7 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorNormalList() {
         //Given
+
         ArrayList<Integer> simpleList = new ArrayList<>();
         simpleList.add(1);
         simpleList.add(2);
@@ -31,8 +32,8 @@ public class CollectionTestSuite {
         OddNumbersExterminator numbersExterminator = new OddNumbersExterminator();
         ArrayList<Integer> result = numbersExterminator.exterminate(simpleList);
         //Then
-        System.out.println("Lista wejściowa: " + simpleList);
-        System.out.println("Lista wyjściowa: " + result);
+        System.out.println("Test na liście zawierającej elementy: " + simpleList);
+        System.out.println("Stworzona nowa lista z elementów parzystych: " + result);
         Assert.assertNotEquals(simpleList, result);
         for (Integer lista : result) {
             Assert.assertTrue(lista % 2 == 0);
@@ -42,6 +43,7 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorEmptyList() {
         //Given
+        System.out.println("Test na pustej liście");
         ArrayList<Integer> simpleList2 = new ArrayList<>();
         //When
         OddNumbersExterminator numbersExterminator = new OddNumbersExterminator();
