@@ -2,8 +2,8 @@ package com.kodilla.testing.forum.statistic;
 
 public class CalculateStatistic {
     int userCount;
-    int postsCount;
-    int commentCount;
+    double postsCount;
+    double commentCount;
     double averagePostPerUser;
     double averageCommentsPerUser;
     double averageCommentsPerPost;
