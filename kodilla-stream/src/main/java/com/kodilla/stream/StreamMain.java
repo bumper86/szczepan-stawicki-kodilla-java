@@ -1,12 +1,10 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
+import com.kodilla.stream.iterate.NumbersGenerator;
 import com.kodilla.stream.lambda.Executor;
 import com.kodilla.stream.lambda.ExpressionExecutor;
 import com.kodilla.stream.lambda.Processor;
 import com.kodilla.stream.reference.FunctionCalculator;
-
-import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
 
 public class StreamMain {
     public static void main(String[] args) {
@@ -28,12 +26,8 @@ public class StreamMain {
         expressionExecutor.executeExpression(3,4, FunctionCalculator::subBFromA);
         expressionExecutor.executeExpression(3,4, FunctionCalculator::divideAByB);
 
-        System.out.println("Use Beautifier text:");
-        PoemBeautifier poemBeautifier= new PoemBeautifier();
-        poemBeautifier.beautify("Some example text.", (text) -> "ABC" + text + "ABC");
-        poemBeautifier.beautify("Some example text.", (text) -> toUpperCase(text));
-
-
+        System.out.println("Using Stream to generate even numbers from 1 to 20");
+        NumbersGenerator.generateEve(20);
 
     }
 }
