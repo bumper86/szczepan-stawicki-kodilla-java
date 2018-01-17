@@ -1,33 +1,43 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.iterate.NumbersGenerator;
-import com.kodilla.stream.lambda.Executor;
-import com.kodilla.stream.lambda.ExpressionExecutor;
-import com.kodilla.stream.lambda.Processor;
-import com.kodilla.stream.reference.FunctionCalculator;
+import com.kodilla.stream.Book.Book;
+import com.kodilla.stream.Book.BookDirectory;
+
+import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
-        System.out.println("Welcome to module 7 - Stream");
-        Processor processor = new Processor();
-        Executor codeToExecute = () -> System.out.println("This is an example text.");
-        processor.execute(codeToExecute);
+        BookDirectory theBookDirectory = new BookDirectory();
+     /*   People.getList().stream()
+                .map(String::toUpperCase)
+                .filter(s -> s.length() > 11)
+                .map(s -> s.substring(0, s.indexOf(' ') + 2) + ".")
+                .filter(s -> s.substring(0,1).equals("M"))
+                .forEach(System.out::println); */
 
-        System.out.println("Calculating expressions with lambdas");
-        ExpressionExecutor expressionExecutor = new ExpressionExecutor();
-        expressionExecutor.executeExpression(10,5, (a, b) -> a + b);
-        expressionExecutor.executeExpression(10,5, (a, b) -> a - b);
-        expressionExecutor.executeExpression(10,5, (a, b) -> a * b);
-        expressionExecutor.executeExpression(10,5, (a, b) -> a / b);
 
-        System.out.println("Calculating expressions with method references");
-        expressionExecutor.executeExpression(3,4, FunctionCalculator::multiplyAByB);
-        expressionExecutor.executeExpression(3,4, FunctionCalculator::addAToB);
-        expressionExecutor.executeExpression(3,4, FunctionCalculator::subBFromA);
-        expressionExecutor.executeExpression(3,4, FunctionCalculator::divideAByB);
+       /* List<Book> theResultListOfBooks = theBookDirectory.getList().stream()
+                .filter(book -> book.getYearOfPublication() > 2005)
+                .collect(Collectors.toList());
 
-        System.out.println("Using Stream to generate even numbers from 1 to 20");
-        NumbersGenerator.generateEve(20);
+        System.out.println("# elements: " + theResultListOfBooks.size());
+        theResultListOfBooks.stream()
+                .forEach(System.out::println); */
+
+     /*  Map<String, Book> theResultMapOfBooks = theBookDirectory.getList().stream()
+               .filter(book -> book.getYearOfPublication() > 2005)
+               .collect(Collectors.toMap(Book::getSignature, book -> book));
+
+       System.out.println("# elements: " + theResultMapOfBooks.size());
+       theResultMapOfBooks.entrySet().stream()
+               .map(entry -> entry.getKey() + ": " + entry.getValue())
+               .forEach(System.out::println);*/
+
+     String theResultStringOfBooks = theBookDirectory.getList().stream()
+             .filter(book -> book.getYearOfPublication() > 2005)
+             .map(Book::toString)
+             .collect(Collectors.joining(",\n","<<",">>"));
+     System.out.println(theResultStringOfBooks);
 
     }
 }
