@@ -13,7 +13,7 @@ public class RpsEnd {
             scan.next();
         }
         String whatNext = scan.next();
-        if (whatNext == "n") {
+        if (whatNext.equals("n")) {
             System.out.println("Are you sure you want to play again?");
             do {
                 while (!scan.hasNext("[yn]")) {
@@ -23,7 +23,7 @@ public class RpsEnd {
                 chose = scan.next();
             } while (!chose.equals("y"));
             again = 1;
-        } if(whatNext == "x") {
+        } if(whatNext.equals("x")) {
             System.out.println("Are you sure you want to finish game?");
             do {
                 while (!scan.hasNext("[yn]")) {
