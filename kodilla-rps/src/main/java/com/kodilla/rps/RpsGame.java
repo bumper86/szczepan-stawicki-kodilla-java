@@ -56,7 +56,7 @@ public class RpsGame {
             }
             System.out.println("GAME FINISH");
             if (computerwin < playerWin) {
-                System.out.println("The winner is " + username + "Congratulations");
+                System.out.println("The winner is " + username + " Congratulations");
             }
             if (computerwin > playerWin) {
                 System.out.println("You lost game. Win COMPUTER!");
