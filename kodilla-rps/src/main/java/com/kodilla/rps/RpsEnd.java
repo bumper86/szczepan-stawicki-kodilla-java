@@ -17,7 +17,7 @@ public class RpsEnd {
             System.out.println("Are you sure you want to play again?");
             do {
                 while (!scan.hasNext("[yn]")) {
-                    System.out.println("Wrong char please enter y 'yes' or n 'no'");
+                    System.out.println("Wrong char please enter 'y' to yes or 'n' to end program");
                     scan.next();
                 }
                 chose = scan.next();
@@ -27,7 +27,7 @@ public class RpsEnd {
             System.out.println("Are you sure you want to finish game?");
             do {
                 while (!scan.hasNext("[yn]")) {
-                    System.out.println("Wrong char please enter y 'yes' or n 'no'");
+                    System.out.println("Wrong char please enter 'y' to end program or 'n' to play again");
                     scan.next();
                 }
                 chose = scan.next();
