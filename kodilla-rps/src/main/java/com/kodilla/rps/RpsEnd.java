@@ -3,10 +3,9 @@ package com.kodilla.rps;
 import java.util.Scanner;
 
 public class RpsEnd {
-    public Integer theEnd() {
+    public Boolean theEnd(Scanner scan) {
         String chose = "";
-        int again = 0;
-        Scanner scan = new Scanner(System.in);
+        boolean again = true;
         System.out.println(" Do you want play again? \n Yes please 'n' and enter. \n No please x and enter.");
         while (!scan.hasNext("[xn]")) {
             System.out.println("Wrong char please enter x or n");
@@ -21,9 +20,9 @@ public class RpsEnd {
                 }
                 chose = scan.next();
             if (chose.equals("y")) {
-                again = 1;
+                again = true;
             } else {
-                again = 2;
+                again = false;
             }
         }
         if(whatNext.equals("x")) {
@@ -34,9 +33,9 @@ public class RpsEnd {
                 }
                 chose = scan.next();
             if (chose.equals("n")){
-                again = 1;
+                again = true;
             } else {
-                again = 2;
+                again = false;
             }
         }
         return again;

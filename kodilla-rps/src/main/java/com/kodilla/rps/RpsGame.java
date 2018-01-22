@@ -1,17 +1,19 @@
 package com.kodilla.rps;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
 public class RpsGame {
 
-    public void gamesInput(Integer rounds, String username){
+    public List<Integer> gamesInput(Integer rounds, String username, Scanner move){
         int computerwin = 0;
         int playerWin = 0;
         int moveplayer = 0;
         int movecomputer = 0;
         Random random = new Random();
-        Scanner move = new Scanner(System.in);
+        List<Integer> numberOfWin = new ArrayList<>();
         for (int round = 1; round <= rounds; round++) {
                 System.out.println("Please make your move.");
                 do {
@@ -54,15 +56,24 @@ public class RpsGame {
                 }
                 System.out.println("In game player wins " + playerWin + " round \nComputer wins " + computerwin + " round");
             }
-            System.out.println("GAME FINISH");
-            if (computerwin < playerWin) {
-                System.out.println("The winner is " + username + " Congratulations");
-            }
-            if (computerwin > playerWin) {
-                System.out.println("You lost game. Win COMPUTER!");
-            }
-            if (computerwin == playerWin) {
-                System.out.println("DRAW");
-            }
+            numberOfWin.add(playerWin);
+            numberOfWin.add(computerwin);
+            return numberOfWin;
+
+    }
+
+    public void whoWin(String username, List<Integer> numberOfWin){
+        Integer player = numberOfWin.get(0);
+        Integer computer = numberOfWin.get(1);
+        System.out.println("GAME FINISH");
+        if (computer < player) {
+            System.out.println("The winner is " + username + " Congratulations");
+        }
+        if (computer > player) {
+            System.out.println("You lost game. Win COMPUTER!");
+        }
+        if (computer == player) {
+            System.out.println("DRAW");
+        }
     }
 }
