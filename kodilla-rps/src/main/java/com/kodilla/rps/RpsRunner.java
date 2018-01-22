@@ -13,7 +13,7 @@ public class RpsRunner {
         Integer rounds = rpsInfo.howManyRounds(scan);
         rpsInfo.infoGame();
         RpsGame rpsGame = new RpsGame();
-        List<Integer> whoWin = rpsGame.gamesInput(rounds, username, scan);
+        RpsNumbersWin whoWin = rpsGame.gamesInput(rounds, username, scan);
         rpsGame.whoWin(username, whoWin);
         RpsEnd rpsEnd = new RpsEnd();
         end = rpsEnd.theEnd(scan);
