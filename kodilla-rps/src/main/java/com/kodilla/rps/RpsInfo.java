@@ -7,7 +7,8 @@ public class RpsInfo {
     public Integer howManyRounds;
 
     public String getUsername(Scanner scan) {
-        System.out.println("Please enter Your Name:");
+
+        System.out.println("Hello in my world! \nPlease enter Your Name:");
         do {
             while (!scan.hasNext()) {
                 System.out.println("Number thats not name.");
