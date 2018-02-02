@@ -1,15 +1,15 @@
 package com.kodilla.good.patterns.food2door;
 
 public class OrderDto {
-    public Product product;
+    public String product;
     public boolean isOrder;
 
-    public OrderDto(Product product, boolean isOrder) {
+    public OrderDto(String product, boolean isOrder) {
         this.product = product;
         this.isOrder = isOrder;
     }
 
-    public Product getProduct() {
+    public String getProduct() {
         return product;
     }
 

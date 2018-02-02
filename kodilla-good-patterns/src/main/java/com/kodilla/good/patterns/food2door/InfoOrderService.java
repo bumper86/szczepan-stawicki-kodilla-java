@@ -1,9 +1,12 @@
 package com.kodilla.good.patterns.food2door;
 
 public class InfoOrderService implements OrderService {
+    private OrderRequest orderRequest;
 
-    public boolean order(final Product product, final Producent producent) {
-        System.out.println("Order product: " + product.getProductName() + " in producer: " + producent.process(product) + " is order.");
+    public boolean order(String product, Producent producent) {
+        product = orderRequest.getProduct();
+        producent = orderRequest.getProducent();
+        System.out.println("Order product: " + product + " in producer: " + producent + " is order.");
 
         return true;
     }

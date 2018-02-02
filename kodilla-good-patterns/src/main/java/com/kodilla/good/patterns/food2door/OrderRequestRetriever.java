@@ -1,11 +1,12 @@
 package com.kodilla.good.patterns.food2door;
 
 public class OrderRequestRetriever {
-    public OrderRequest retrieve() {
-        Product product = new Product("Ham", 20);
-        Producent healthyShop = new HealthyShop();
+    public Producent producent;
+    public OrderRequest retrieve(String nameProduct, int quantity) {
+        Products products = new Products();
+        producent = products.ListOfProducts().get(nameProduct);
 
-        return new OrderRequest(product,healthyShop);
+        return new OrderRequest(nameProduct, quantity, producent);
     }
 }
 
