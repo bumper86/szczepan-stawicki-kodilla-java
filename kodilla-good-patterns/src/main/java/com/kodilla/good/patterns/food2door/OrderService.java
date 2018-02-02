@@ -1,5 +1,5 @@
 package com.kodilla.good.patterns.food2door;
 
 public interface OrderService {
-    boolean order(String product, String producent);
+    boolean order(String product, int quantity, Producent producent);
 }

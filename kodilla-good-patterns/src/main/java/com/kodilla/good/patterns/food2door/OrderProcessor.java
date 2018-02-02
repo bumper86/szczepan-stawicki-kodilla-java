@@ -8,7 +8,7 @@ public class OrderProcessor {
         }
 
         public OrderDto process(final OrderRequest orderRequest) {
-            boolean isOrder = orderService.order(orderRequest.getProduct(), orderRequest.toString());
+            boolean isOrder = orderService.order(orderRequest.getProduct(), orderRequest.getQuantity(), orderRequest.getProducent());
 
             if(isOrder) {
                 return new OrderDto(orderRequest.getProduct(), true);

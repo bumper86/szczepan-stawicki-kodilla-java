@@ -5,7 +5,7 @@ public class OrderRequest {
     private String product;
     private int quantity;
 
-    public OrderRequest(final String product,final int quantity, final  Producent producent) {
+    public OrderRequest(final String product, final int quantity, final  Producent producent) {
          this.product = product;
          this.quantity = quantity;
          this.producent = producent;
