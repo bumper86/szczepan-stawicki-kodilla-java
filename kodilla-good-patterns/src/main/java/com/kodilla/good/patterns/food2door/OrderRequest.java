@@ -15,6 +15,13 @@ public class OrderRequest {
         return producent;
     }
 
+    @Override
+    public String toString() {
+        return "OrderRequest{" +
+                "producent=" + producent +
+                '}';
+    }
+
     public String getProduct() {
         return product;
     }

@@ -6,4 +6,6 @@ public class ExtraFoodShop implements Producent{
         System.out.println("Extra Food Shop confirms the order of product: " + orderRequest.getProduct() + " in an amount: " + orderRequest.getQuantity());
         return "Extra Food Shop";
     }
+
+
 }
