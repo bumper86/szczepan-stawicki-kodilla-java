@@ -23,13 +23,13 @@ public class ConnectionProcessor {
     }
 
     public boolean connectionFromCity(ConnectionRequest connectionRequest) {
-        List<Flight> formAirport = connections.getConnection().stream()
+        List<Flight> fromAirport = connections.getConnection().stream()
                 .filter(n -> n.getDepartureCity().equals(connectionRequest.getStartCity()))
                 .collect(Collectors.toList());
 
-        if (formAirport.size() > 0) {
+        if (fromAirport.size() > 0) {
             System.out.println("Your flights from city: " + connectionRequest.getStartCity());
-            formAirport.stream()
+            fromAirport.stream()
                     .forEach(System.out::println);
             return true;
         } else {
@@ -39,19 +39,17 @@ public class ConnectionProcessor {
     }
 
     public boolean connectionViaCity(ConnectionRequest connectionRequest) {
-        List<Flight> formViaCity = connections.getConnection().stream()
-                .filter(n -> n.getDepartureCity().equals(connectionRequest.getStartCity()))
-                .filter(m -> m.getArrivalCity().equals(connectionRequest.getViaCity()))
+        List<Flight> fromViaCity = connections.getConnection().stream()
+                .filter(n -> n.getDepartureCity().equals(connectionRequest.getStartCity()) && n.getArrivalCity().equals(connectionRequest.getViaCity()))
                 .collect(Collectors.toList());
 
         List<Flight> toViaCity = connections.getConnection().stream()
-                .filter(n -> n.getDepartureCity().equals(connectionRequest.getViaCity()))
-                .filter(m -> m.getArrivalCity().equals(connectionRequest.getDestinationCity()))
+                .filter(n -> n.getDepartureCity().equals(connectionRequest.getViaCity()) && n.getArrivalCity().equals(connectionRequest.getDestinationCity()))
                 .collect(Collectors.toList());
 
-        if (formViaCity.size() > 0 && toViaCity.size() > 0) {
+        if (fromViaCity.size() > 0 && toViaCity.size() > 0) {
             System.out.println("Your possible flights from city: " + connectionRequest.getStartCity() + " to city: " + connectionRequest.getDestinationCity() + " via city: " + connectionRequest.getViaCity());
-            formViaCity.stream()
+            fromViaCity.stream()
                     .forEach(System.out::println);
             toViaCity.stream()
                     .forEach(System.out::println);
