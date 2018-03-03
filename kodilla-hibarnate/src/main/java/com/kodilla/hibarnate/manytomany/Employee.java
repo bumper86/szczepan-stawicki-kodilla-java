@@ -5,6 +5,11 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedQuery(
+        name = "Employee.retrieveEmployeesLastname",
+        query = "FROM Employee WHERE lastname = :LASTNAME"
+)
+
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
@@ -36,7 +41,7 @@ public class Employee {
     }
 
     @NotNull
-    @Column(name = "LASTNEM")
+    @Column(name = "LASTNAME")
     public String getLastname() {
         return lastname;
     }
