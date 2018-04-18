@@ -49,7 +49,9 @@ public class SearchFacadeTestsSuite {
 
         }
 
-       // searchFacade.deleteAll();
+        searchFacade.delete(softwareMachine.getId());
+        searchFacade.delete(dataMaesters.getId());
+        searchFacade.delete(greyMatter.getId());
 
         }
 
@@ -86,7 +88,9 @@ public class SearchFacadeTestsSuite {
 
         }
 
-        //searchFacade.deleteAll();
+        searchFacade.delete(softwareMachine.getId());
+        searchFacade.delete(dataMaesters.getId());
+        searchFacade.delete(greyMatter.getId());
 
     }
 }

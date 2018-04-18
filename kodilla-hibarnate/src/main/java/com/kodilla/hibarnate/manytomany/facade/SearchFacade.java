@@ -22,8 +22,8 @@ public final class SearchFacade {
         companyDao.save(company);
     }
 
-    public void deleteAll(){
-        companyDao.deleteAll();
+    public void delete(int id){
+        companyDao.delete(id);
     }
 
     private final static Logger LOGGER = LoggerFactory.getLogger(SearchFacade.class);
