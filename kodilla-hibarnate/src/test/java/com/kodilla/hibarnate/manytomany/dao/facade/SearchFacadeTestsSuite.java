@@ -49,9 +49,13 @@ public class SearchFacadeTestsSuite {
 
         }
 
-        searchFacade.delete(softwareMachine.getId());
-        searchFacade.delete(dataMaesters.getId());
-        searchFacade.delete(greyMatter.getId());
+        try {
+            searchFacade.delete(softwareMachine.getId());
+            searchFacade.delete(dataMaesters.getId());
+            searchFacade.delete(greyMatter.getId());
+        } catch (Exception e) {
+
+        }
 
         }
 
@@ -88,9 +92,12 @@ public class SearchFacadeTestsSuite {
 
         }
 
-        searchFacade.delete(softwareMachine.getId());
-        searchFacade.delete(dataMaesters.getId());
-        searchFacade.delete(greyMatter.getId());
+        try {
+            searchFacade.delete(softwareMachine.getId());
+            searchFacade.delete(dataMaesters.getId());
+            searchFacade.delete(greyMatter.getId());
+        } catch (Exception e) {
 
+        }
     }
 }
