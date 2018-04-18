@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import static java.lang.Math.sqrt;
+
 public class Numbers {
 
     public static void main(String[] args) {
@@ -62,7 +64,7 @@ public class Numbers {
         return result;
     }
 
-    public static int solution2(int[] B) {
+      public static int solution2(int[] B) {
         int result = 1;
         Set<Integer> numbers = new HashSet<>();
         for (int number : B) {
@@ -72,5 +74,14 @@ public class Numbers {
             result++;
         }
         return result;
+    }
+
+    public static boolean isSquare(int n) {
+        double m = sqrt(n);
+        int k = 0;
+        k = (int) (m*m);
+        if (k == n)
+            return true;
+        else return false;
     }
 }
