@@ -49,9 +49,9 @@ public class Watcher {
     public Object measureTimeOrder(final ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Object result;
         try {
-            long begin = System.currentTimeMillis();
+            long begin = System.nanoTime();
             result = proceedingJoinPoint.proceed();
-            long end = System.currentTimeMillis();
+            long end = System.nanoTime();
             LOGGER.info("Time consumed by processOrder " + (end-begin) + " [ms]");
         } catch (Throwable throwable) {
             LOGGER.error(throwable.getMessage());
