@@ -76,26 +76,39 @@ public class CrudAppTestSuite {
     private boolean checkTaskExistsinTrello(String taskName) throws InterruptedException {
         final String TRELLO_URL = "https://trello.com/login";
         boolean result = false;
-        WebDriver driverTrello = WebDriverConfig.getDriver(WebDriverConfig.FIREFOX);
+        WebDriver driverTrello = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
         driverTrello.get(TRELLO_URL);
 
         driverTrello.findElement(By.id("user")).sendKeys("bumper6");
         driverTrello.findElement(By.id("password")).sendKeys("B1CVY3pc");
         driverTrello.findElement(By.id("login")).submit();
 
-        Thread.sleep(2000);
+        Thread.sleep(5000);
 
         driverTrello.findElements(By.xpath("//a[@class=\"board-tile\"]")).stream()
                 .filter(aHref -> aHref.findElements(By.xpath(".//span[@title=\"Kodilla Aplication\"]")).size() > 0)
                 .forEach(aHref -> aHref.click());
 
-        Thread.sleep(2000);
+        Thread.sleep(5000);
+        boolean breakIt = true;
 
-        result = driverTrello.findElements(By.xpath("//span")).stream()
-                .filter(theSpan -> theSpan.getText().contains(taskName))
-                .collect(Collectors.toList())
-                .size() > 0;
+        while (true) {
+            breakIt = true;
+            try {
+                result = driverTrello.findElements(By.xpath("//span")).stream()
+                        .filter(theSpan -> theSpan.getText().contains(taskName))
+                        .collect(Collectors.toList())
+                        .size() > 0;
+            } catch (Exception e) {
+                if(e.getMessage().contains("element is not attached")) {
+                    breakIt = false;
+                }
+            } if (breakIt) {
+                break;
+            }
+        }
 
+        Thread.sleep(10000);
         driverTrello.close();
 
         return result;
